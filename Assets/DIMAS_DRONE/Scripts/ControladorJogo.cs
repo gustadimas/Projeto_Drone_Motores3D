@@ -41,23 +41,38 @@ public class ControladorJogo : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+            print("Camera primeira pessoa frontal");
             AtivarCameraPrimeiraPessoaFrontal();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-          AtivarCameraTerceiraPessoaFrontal();
+            print("Camera terceira pessoa frontal");
+            AtivarCameraTerceiraPessoaFrontal();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
+            print("Camera terceira pessoa traseira");
             AtivarCameraTerceiraPessoaTraseira();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
+            print("Camera ambiente fixa");
             AtivarCameraAmbienteFixa();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
+            print("Camera ambiente animada");
             AtivarCameraAmbienteAnimada();
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            print("Próximo drone");
+            ProximoDrone();
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            print("Drone anterior");
+            DroneAnterior();
         }
     }
 
