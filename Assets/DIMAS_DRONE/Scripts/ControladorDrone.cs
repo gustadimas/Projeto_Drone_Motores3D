@@ -28,10 +28,8 @@ public class ControladorDrone : MonoBehaviour
 
         transform.position = Vector3.Lerp(pontosTrajetoria[pontoInicial].position, pontosTrajetoria[pontoFinal].position, progresso);
 
-        // Calcula a rotação para olhar na direção do próximo ponto
         Quaternion rotacaoAlvo = Quaternion.LookRotation(direcao);
 
-        // Rotaciona suavemente em direção ao próximo ponto
         transform.rotation = Quaternion.Slerp(transform.rotation, rotacaoAlvo, velocidadeRotacao * Time.deltaTime);
 
         progresso += Time.deltaTime * velocidadeAtual / distancia;
@@ -48,14 +46,12 @@ public class ControladorDrone : MonoBehaviour
             if (pontoInicial >= pontosTrajetoria.Length)
                 pontoInicial = 0;
 
-            // Aleatoriamente executa uma rotação de 360 graus horizontal
-            if (Random.value < 0.2f) // O valor aqui pode ser alterado para mudar a frequência da manobra
+            if (Random.value < 0.2f) // pode ser alterado para mudar a frequência da manobra
             {
                 Quaternion rotacaoAleatoria = Quaternion.Euler(1, 1, Random.Range(0, 360));
                 transform.rotation *= rotacaoAleatoria;
             }
 
-            // Altera a velocidade do drone a cada mudança de ponto
             velocidadeAtual = Random.Range(velocidadeMinima, velocidadeMaxima);
         }
     }
